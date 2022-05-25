@@ -3,19 +3,19 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    posts = Post.where(is_deleted: false)
 
-    render json: @posts
+    render json: posts
   end
   
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    post = Post.new(post_params)
 
-    if @post.save
-      render json: @post, status: :created, location: @post
+    if post.save
+      render json: post, status: :created, location: @post
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: post.errors, status: :unprocessable_entity
     end
   end
 

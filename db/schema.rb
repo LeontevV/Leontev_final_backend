@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_081810) do
     t.text "tag"
     t.text "image"
     t.integer "user_id"
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

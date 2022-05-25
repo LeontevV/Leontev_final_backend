@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.text :tag
       t.text :image
       t.integer :user_id
-
+      t.boolean :is_deleted, default: false
       t.timestamps
     end
   end
