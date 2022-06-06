@@ -7,4 +7,5 @@ Rails.application.routes.draw do
               }
   resources :posts
   get '/posts/:user_id', to: 'posts#show'
+  get '/member-data', to: 'members#show'
 end

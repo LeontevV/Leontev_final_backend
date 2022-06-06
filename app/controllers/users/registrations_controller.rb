@@ -1,7 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  include RackSessionFix
+
   respond_to :json
 
-  private
+  private 
 
   def respond_with(resource, _opts = {})
     register_success && return if resource.persisted?
@@ -17,3 +19,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render json: { message: "Что-то пошло не так" }
   end
 end
+
+
+
