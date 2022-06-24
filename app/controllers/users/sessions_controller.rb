@@ -4,7 +4,11 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    render json: { message: 'Вы вошли в систему' }, status: :ok
+
+    if current_user then
+      render json: { message: current_user }, status: :ok
+    else render json: { message: 'Не вошёл в систему' }, status: :unauthorized
+    end
   end
 
   def respond_to_on_destroy

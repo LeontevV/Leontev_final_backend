@@ -5,8 +5,8 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.text :description
       t.text :tag
       t.text :image
-      t.integer :user_id
       t.boolean :is_deleted, default: false
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
