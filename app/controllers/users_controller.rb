@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ show ]
+  
+    def show
+      render json: @user.to_json(include: :posts)
+    end
   
   private
-
-  def show
-    render json: @user.to_json(include: :posts)
-  end
-  
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
  
 end

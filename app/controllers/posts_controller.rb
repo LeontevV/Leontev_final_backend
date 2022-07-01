@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     posts = Post.where(is_deleted: false)
 
-    render json: posts
+    render json: posts.to_json(include: :user)
   end
   
   # POST /posts
